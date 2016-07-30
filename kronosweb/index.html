@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Kronos WEB</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+                <link rel="shortcut icon"  href="Imagenes/k.ico" />
+                <link rel="stylesheet" href="Estilos/estilos.css">
+                <link rel="stylesheet" href="fonts/font.css">
+    </head>
+    
+    <body ng-app="kronosWeb" >
+      <div class="contenedor" ng-controller="controladorPincipal">   
+        <div ng-include="'Vistas/NavKronos.html'"></div>    
+             <div id="dialogoverlay"></div>
+            <div id="dialogbox">
+              <div>
+                <div id="dialogboxhead"></div>
+                <div id="dialogboxbody"></div>
+                <div id="dialogboxfoot"></div>
+              </div>
+            </div>
+            
+             <br>
+              <div class="contenedorInterno" ng-view> </div>
+              <br>
+          </div>
+          <br>
+         
+    <footer>
+        <div class="contenedor">Joyería Kronos S.A.
+            <br>Teléfono 511 97 30  Medellin Colombia
+            <br>Emal: :    joyeriakronos@joyeriakronos.com
+            <br>
+        </div>
+        <br>
+        <div class="contenedor">Desarrollado por: Sistemas de Exelencia Operacional eosbasic
+            <br>Aplicaciones Web Para Sistemas de Gestión
+            <br> Cel 319 360 80 02
+            <br><br><a href="http://inicio.eosbasic.com/">eosbasic.com</a>
+            <br>
+            <br>
+        </div>
+    </footer>
+ 
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-XXXXX-X');
+      ga('send', 'pageview');
+    </script>
+      
+    <!-- bower:js -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        
+       <script src="Scripts/AppKronos.js"></script>
+       <script src="Scripts/Controladores/principal.js"></script>
+       <script src="Scripts/Servicios/servicios.js"></script>
+    
+    </body>
+</html>

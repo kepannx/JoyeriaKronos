@@ -1,0 +1,1 @@
+<br /><center><a href="http://www.joyeriakronos.com" target="_blank" style="font-family: Tahoma, Verdana, sans-serif; font-size:12px" class="menu">www.joyeriakronos.com</a></center></body></html>

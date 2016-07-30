@@ -1,0 +1,1 @@
+<div id="contenedorcarrito"> <b><img src="images/vacio.gif"  align="left"/><?php if($carro){  echo "<a href='ver_carrito.php'><font color='#00000'><b>Usted tiene <span id='fuente3'>".count($carro)." </span> productos, haga click aqui para terminar el pedido</font></b></a>"; } else { echo "El carrito esta vacio"; } ?></b></div>

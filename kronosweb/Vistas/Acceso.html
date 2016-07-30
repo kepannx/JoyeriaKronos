@@ -1,0 +1,26 @@
+
+<script src="Scripts/Controladores/logeo.js"></script>
+
+<div class="container"  ng-controller="CtrLogeo"  ng-init="consultarCentros()" >
+    
+  <form class="form-signin" role="form" novalidate>
+    <h2 class="textoazul"><a><span class="icon-users"></span><br></a>Acceso</h2>
+    <br>
+    <!--<input type="text" class="CajaTexto" placeholder="Identificación"  ng-model="usuario.nombreUsuario" >-->
+       <br>
+        <div>
+               <h3>Punto de Venta:</h3><br>
+               <select class="CajaTexto" ng-model="usuario.nombreUsuario">
+               <option ng-repeat="centro in centros" value="{{centro.ID}}" >{{centro.NOMBRE}}</option>
+               </select>
+       </div>
+    <br>
+    <input type="password" class="CajaTexto" placeholder="Clave" ng-keyup="enterLogin($event.keyCode)" ng-model="usuario.clave">
+    <br>
+    <br>
+    <div class="botonAzul_A">
+        <a href="javascript:void(0)"   ng-click="iniciarLogeo()" >Iniciar Sesión</a>
+    </div>
+  </form>
+
+</div> <!-- /container -->

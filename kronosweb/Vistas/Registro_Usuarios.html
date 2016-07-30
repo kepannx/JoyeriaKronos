@@ -1,0 +1,40 @@
+
+<script src="Scripts/Controladores/gestion_usuarios.js"></script>
+
+<div class="container"  ng-controller="CtrGestionUsuario" ng-init="consultarCentros()">
+    
+  <form class="form-signin" role="form" novalidate>
+    <h2 class="textoazul"><a><span class="icon-users"></span><br></a>Administrar Usuarios</h2>
+    <br>
+
+    <input type="text" class="CajaTexto" placeholder="Identificación" ng-model="usuario.id">
+    <br>
+    <br>
+    <input type="text" class="CajaTexto" placeholder="Nombres" ng-model="usuario.nombre" >
+    <br>
+    <br>
+    <input type="text" class="CajaTexto" placeholder="Apellido" ng-model="usuario.apellido">
+    <br>
+    <br>
+    
+     <div>
+              <h3>Punto de Venta:</h3><br>
+               <select class="CajaTexto" ng-model="usuario.centroCosto">
+               <option ng-repeat="centro in centros" value="{{centro.ID}}" >{{centro.NOMBRE}}</option>
+               </select>
+           </div>
+<div class="div1">
+    <nav>
+			<ul>
+				<li><a href="javascript:void(0)"  ng-click="consultarUsuario()"><span class="icon-search"></span>Consultar</a>
+				<li><a href="javascript:void(0)"  ng-click="guardarUsuario()"><span class="icon-user-plus"></span>Guardar</a>
+				<li><a href="javascript:void(0)"  ng-click="modificarUsuario()"><span class="icon-user-check"></span>Modificar</a>
+				<li><a href="javascript:void(0)"  ng-click="restablecerClave()" ><span class="icon-user-check"></span>Restablecer Clave</a>
+				<li><a href="javascript:void(0)"  ng-click="eliminarUsuario()"><span class="icon-user-minus"></span>Eliminar</a>
+			</ul>
+	</nav> 
+</div>
+
+  </form>
+
+</div> <!-- /container -->

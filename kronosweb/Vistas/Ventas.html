@@ -1,0 +1,106 @@
+<script src="Scripts/Controladores/entregas.js"></script>
+
+<div  ng-controller="CtrEntregas" >
+
+    <h2 class="textoazul"><a><span class="icon-gift"></span></a>Ventas</h2> <br> 
+
+        <div style="display: inline-block; margin:0 auto;" ng-keyup="enterHabilitar($event.keyCode)" >
+                    <div style="float:left;"> 
+                        <label>Vendedor : </label> {{vendedorLogeado}} <br>
+                        <input type="password" ng-show="!habilitarContenido" class="CajaTexto" placeholder="Clave" ng-model="Vendedora">
+                    </div>  
+            
+                    <div class="botonVerde_A" style="float:left; top:20px;" >
+                        <br>
+                        <a href="javascript:void(0)" ng-show="!habilitarContenido" ng-click="habilitarEntrega()"><span class="icon-unlocked"></span>Habilitar</a>
+                    </div>
+            </div>
+    <div ng-show="habilitarContenido">   
+       <div style="display: inline-block; margin:0 auto;" >
+        <div style="float:left;" ng-keyup="enterIdCotizacion($event.keyCode)" > 
+            <label>Cotización</label> <br>
+            <input class="CajaTexto" type="number"  ng-model="idCotizacionBuscar" /> <br>
+        </div>    
+        
+        <div class="botonAzul_A" style="float:left; top:20px;">
+            <br>
+            <a href="javascript:void(0)"  ng-click="consultarCotizacion()" ><span class="icon-search"></span>Consultar</a>
+        </div>
+        <br>
+
+        </div> 
+
+        <br>
+        <form class="contenedorInterno"  name="formVentas">
+        <div style="float:left;">
+            <label>Nombres Apellidos</label> <br>
+            <input class="CajaTexto" type="text" ng-model="clienteBuscado.nombre" required />
+        </div>
+        
+        <div style="float:left;" ng-keyup="enterIdCedula($event.keyCode)">
+            <label>Identificación</label> <br>
+            <input class="CajaTextoNumeroCorto" type="text"  ng-model="clienteBuscado.idUsuario" required />
+        </div>
+         <div class="botonAzul_P" style="float:left;">
+            <br>
+            <a href="javascript:void(0)"  ng-click="buscarCedulaEntrega()"><span class="icon-search"></span></a>
+            <br>
+        </div>
+        <div style="float:left;">
+            <label>Email</label><br>
+            <input class="CajaTexto" type="text" ng-model="clienteBuscado.correo" />
+        </div>
+        
+        <div style="float:left;"> 
+            <label>Teléfono / Celular</label><br>
+            <input class="CajaTexto" type="text" ng-model="clienteBuscado.telefono" />
+        </div>
+        
+        
+    <br>
+    <table class="tabla1">
+        <thead>
+            <tr>
+                <th>EAN</th>
+                <th>Referencia</th>
+                <th>Descripción</th>
+                <th>Cantidad</th>
+                <th>Valor Und</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="producto in productos">
+                <td>{{ producto.Codigo }}</td>
+                <td>{{ producto.Referencia }}</td>
+                <td>{{ producto.Descripcion }}</td>
+                <td>{{ producto.Cantidad }}</td>
+                <td>{{ producto.ValUnitario | currency }}</td>
+                <td> <a href="javascript:void(0)" ng-click="eliminarProducto(producto.id)">Eliminar</a></td>
+            </tr>
+            <tr >
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>TOTAL:</td>
+                <td>{{ total | currency }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+       <div style="display: inline-block; margin:0 auto;">    
+             <div style="float:left;">
+                <label>Factura</label> <br>
+                <input class="CajaTexto" type="text"   ng-model="facturaFlamingo"  ng-minlength="21" required /> 
+             </div>
+         <div ng-show="button_clicked">
+            <div class="botonVerde_A" style="float:left; top:20px;"   ng-show="!formVentas.$invalid && productos.length > 0">
+                <br>
+            <a href="javascript:void(0)" ng-click="generarEntrega()"><span class="icon-floppy-disk"></span>Entregar Productos</a>
+            </div>
+         </div>          
+       </div>
+    </form>
+    </div>
+</div> 

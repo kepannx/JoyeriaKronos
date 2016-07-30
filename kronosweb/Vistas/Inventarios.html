@@ -1,0 +1,91 @@
+
+
+<div  ng-controller="CtrConteosInventario" >
+    
+<h2 class="textoazul"><a><span class="icon-list-numbered"></span></a>Inventarios</h2> <br>   
+<br>
+<br>
+<div style="display: inline-block; margin:0 auto;">      
+       <div style="float:left;" ng-keyup="enterHabilitar($event.keyCode)" > 
+            <label>Vendedor : </label>{{vendedorLogeado}} <br>
+            <input type="password" class="CajaTexto" ng-show="!habilitarContenido"  placeholder="Clave" ng-model="inventarios.vendedora">
+        </div>  
+        
+       <div class="botonVerde_A" style="float:left; top:20px;" >
+            <br>
+            <a href="javascript:void(0)" ng-show="!habilitarContenido" ng-click="habilitarConteos()"><span class="icon-unlocked"></span>Habilitar</a>
+        </div>
+ </div>
+ <div ng-show="habilitarContenido">
+ <br>
+           <form  name="formInventario" class="contenedorInterno">
+             
+             <div style="display: inline-block; margin:0 auto;">      
+                <h1 style="float:left;">Conteo Diario de Productos</h1>
+             </div> 
+             <br><br>
+            <table class="tabla1">
+        <thead>
+            <tr>
+                <th>Grupo</th>
+                <th>Cantidad Disponible</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="producto in productos">
+                <td>{{ producto.DescripcionGrupo }}</td>
+                <td><input style="text-align:center;" type="number" class="CajaTexto" placeholder="Unidades" ng-model="producto.UnidadesContadas" required ></td>
+            </tr>            
+        </tbody>
+    </table>
+             <br>
+               <div ng-show="cargoProductos"> 
+                <div>
+                 <div ng-show="button_clicked && !formInventario.$invalid" class="botonVerde_A"  style="float:left;" >
+                        <a href="javascript:void(0)" ng-click="guardarConteo()"><span class="icon-list-numbered"></span>Guardar Conteo</a>
+                    </div>
+                    
+                    <div class="botonGris" style="margin-left: 200px; margin-right: 150px;  width:250px;">
+                    <a href="javascript:void(0)"   ng-click="imprimirInventario()"><span class="icon-printer"></span>Imprimir Formato</a>
+                    </div>
+                    </div>
+                </div>    
+        </form> <br><br><br>
+    </div>
+    
+    <div id="imprimeme" ng-show='false'  style="max-width:240px; text-align:left; font-size:12px;" >
+        
+        <h3 style="font-size:18px;">INVENTARIO : </h3> <br>
+        
+        <label>Fecha : {{fechaCotizacion | date:'medium'}}</label><br>
+        <label>Tienda : </label> {{ usrConectado.almacen }} <br>
+        <label>Vendedor : </label> {{vendedorLogeado}} <br>
+        <label>Identificación : </label> {{vendedorLogeado.cedula}} <br><br><br>
+        <label style="text-align: justify;" > ****** GRUPOS ******</label> <br><br>
+        <label style=" margin-right: 15px;">CONTEO</label>
+        <label >GRUPO DE PRODUCTOS</label>  <br><br>
+        
+        
+    <div style="width:240px; text-align:left;" >
+        <div ng-repeat="producto in productos">
+             <label style=" margin-right: 15px;">________</label>
+             <label >{{producto.DescripcionGrupo}}</label><br><br>
+        
+     </div><br><br>
+         <label> ********************</label><br>
+         <label style=" margin-right: 15px;" >________</label>
+         <label > UNDS EN CONTEO FISICO</label>
+         
+        <br><br>
+         <label> ********************</label><br>
+        
+        <p style="text-align: center; font:1em; width:240px;">FIRMA DEL EMPLEADO</p><br><br><br><br>
+        <p style="text-align: center;">___________________________________</p><br><br>
+        ***
+        <br><br>
+    </div>
+    
+ 
+  
+  </div>   
+<script src="Scripts/Controladores/inventarios.js"></script>

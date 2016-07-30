@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color: #000000;
+}
+
+.style1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+/* links vinculos */
+a:link {
+	color: #000000;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration:inherit
+}
+a:visited {
+	text-decoration: none;
+	color: #333333;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+}
+-->
+
+#contenedor{ width:770px; height:605px; margin:3; background-color:black;
+border: 2px solid #CCCCCC; margin:auto;
+-moz-border-radius: 15px 15px 15px 15px;
+}
+#contenedor2{ width:auto; height:auto; margin:auto; background-color:black}
+#contenedorswf{ width:385; height:596; margin:auto; background-color:black;}
+
+.caja{ background:#FFFFFF; width:250px; height:250px; margin:10px; border: 2px; border-color:#FFFFFF; -moz-border-radius: 15px 15px 15px 15px ; margin:auto;}
+
+#cajaadmin { width:300px; height:150px; margin:auto; border: 3px; border-color:#990000; -moz-border-radius: 15px 15px 15px 15px; background:#990000; }

@@ -1,0 +1,29 @@
+
+ <script src="Scripts/Controladores/recuperar_clave.js"></script>
+ 
+ 
+<div class="container"  ng-controller="CtrRecuperar" >
+    
+  <form class="form-signin" role="form" novalidate>
+      
+    <h2 class="textoazul"><a><span class="icon-users"></span><br></a>Recuperar Acceso</h2>
+    <br>
+    <input type="text" class="CajaTexto" ng-model="cambiar.id" placeholder="Identificación" >
+    <br>
+    <br>
+    <input type="password" class="CajaTexto" ng-model="cambiar.claveVieja" placeholder="Clave Actual" >
+    <br>
+    <br>
+    <input type="password" class="CajaTexto" placeholder="Nueva Clave" ng-model="cambiar.ConfirmarclaveNueva">
+    <br>
+    <br>
+    <input type="password" class="CajaTexto" ng-model="cambiar.claveNueva" placeholder="Confirmar Nueva Clave">
+    <br>
+    <br>
+        <div class="botonAzul_A"  >
+            <a href="javascript:void(0)"  ng-click="cambiarClave()" >Cambiar Clave</a>
+        </div>
+ 
+  </form>
+
+</div> <!-- /container -->

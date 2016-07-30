@@ -1,0 +1,77 @@
+
+<script src="Scripts/Controladores/entradas.js"></script>
+
+<div  ng-controller="CtrEntradas" >
+    
+    
+<h2 class="textoazul"><a><span class="icon-folder-plus"></span></a>Entradas de Inventario</h2> <br>   
+<br>
+<br>
+<div style="display: inline-block; margin:0 auto;">      
+       <div style="float:left;" ng-keyup="enterHabilitar($event.keyCode)" > 
+            <label>Vendedor : </label> {{vendedorLogeado}} <br>
+            <input type="password" ng-show="!habilitarContenido" class="CajaTexto" placeholder="Clave" ng-model="entrada.vendedora" >
+        </div>  
+        
+        <div class="botonVerde_A" style="float:left; top:20px;" ng-show="!habilitarContenido">
+            <br>
+            <a href="javascript:void(0)" ng-click="habilitarEntrada()"><span class="icon-unlocked"></span>Habilitar</a>
+        </div>
+ </div>
+ <br>
+ <br>
+<div ng-show="habilitarContenido">
+ <br>
+ <br>
+     
+    <form class="contenedorInterno"  name="formEntradas" >
+        
+         <div style="display: inline-block; margin:0 auto;">
+             
+            <div style="float:left;" ng-show="!activarReimprimir" ng-keyup="enterRemision($event.keyCode)"> 
+                <label>Num Remision</label> <br>
+                <input class="CajaTexto" type="number" name="EAN" ng-model="entrada.numRemision" required />
+            </div>
+            
+            <div  class="botonAzul_A" style="float:left; top:20px;" ng-show="!formEntradas.$invalid" >
+                <br>
+                <a href="javascript:void(0)" id=botonAgregar ng-click="buscarRemision()"><span class="icon-search"></span>Buscar</a>
+            </div>
+            
+         </div>
+          <br> <br>
+    <table class="tabla1">
+        <thead>
+            <tr>
+                <th>EAN</th>
+                <th>Referencia</th>
+                <th>Descripción Grupo</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="producto in productos">
+                <td>{{producto.Codigo}}</td>
+                <td>{{ producto.Referencia }}</td>
+                <td>{{ producto.DescripcionGrupo }}</td>
+                <td>{{ producto.Cantidad }}</td>
+            </tr>
+            <tr ><td></td>
+                <td></td>
+                <td>TOTAL UND:</td>
+                <td>{{ total }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <div ng-show="button_clicked">
+     <div class="botonVerde_A"  ng-show="activarBoton">
+        <a href="javascript:void(0)"   ng-click="generarEntrada()"><span class="icon-folder-plus"></span>Recibir Inventario</a>
+    <br>
+    <br>
+        </div>
+      </div>  
+    </form>
+    </div>
+ </div>   
+

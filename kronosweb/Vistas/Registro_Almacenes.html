@@ -1,0 +1,32 @@
+
+<script src="Scripts/Controladores/gestion_almacenes.js"></script>
+
+<div class="container"  ng-controller="CtrGestionUsuario">
+    
+  <form class="form-signin" role="form" novalidate>
+    <h2 class="textoazul"><a><span class="icon-office"></span><br></a>Administrar Almacenes</h2>
+    <br>
+
+    <input type="text" class="CajaTexto" placeholder="Id Centro Costo" ng-model="almacen.id">
+    <br>
+    <br>
+    <input type="text" class="CajaTexto" placeholder="Nombre Centro Costo" ng-model="almacen.nombre" >
+    <br>
+    <br>
+    <input type="text" class="CajaTexto" placeholder="Contraseña" ng-model="almacen.clave">
+    <br>  
+    <br>          
+<div class="div1">
+    <nav>
+			<ul>
+				<li><a href="javascript:void(0)"  ng-click="consultarAlmacen()"><span class="icon-search"></span>Consultar</a>
+				<li><a href="javascript:void(0)"  ng-click="guardarAlmacen()"><span class="icon-user-plus"></span>Guardar</a>
+				<li><a href="javascript:void(0)"  ng-click="modificarAlmacen()"><span class="icon-user-check"></span>Modificar</a>
+				<li><a href="javascript:void(0)"  ng-click="eliminarAlmacen()"><span class="icon-user-minus"></span>Eliminar</a>
+			</ul>
+	</nav> 
+</div>
+
+  </form>
+
+</div> <!-- /container -->

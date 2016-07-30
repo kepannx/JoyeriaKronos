@@ -1,0 +1,59 @@
+ <div> 
+            <br>
+           <div class="usuario" ng-show="usrConectado.estaConectado"  >
+            <h5><span class="icon-office"></span> {{ usrConectado.almacen }}</h5>     
+            </div>       
+           <nav   class="navPrincipal"  role="navigation" ng-show="usrConectado.estaConectado" >
+			<ul>
+				<li><a href="#/Inicio"><span class="icon-home"></span>Inicio</a>
+				<div>
+				    <ul>
+				        <li class="titulo"><a></a></li>
+				        <li><a href="#/Cotizaciones">Cotizaciones</a></li>
+				         <li><a href="#/Ventas">Ventas</a></li>
+				         <li><a href="#/Fabricaciones">Fabricaciones</a></li>
+				         <li><a href="#/Garantias">Garantias</a></li>
+				         <li><a href="#/Inventarios">Inventario</a></li>
+				         <li><a href="#/Entradas">Entradas</a></li>
+				         <li><a href="#/Salidas">Salidas</a></li>
+				         <li><a href="#/Turnos">Turnos</a></li>
+					</ul>
+				</div>
+				
+				<li><a href="#" ng-show="usrConectado.perfil==2" ><span class="icon-stats-dots"></span>Administrativo</a>
+				<div>
+				    <ul>
+				        <li class="titulo"><a></a></li>
+						<li><a href="#/Registro_Usuarios">Gestión de Usuarios</a></li>
+						<li><a href="#/Registro_Almacenes">Gestión de Almacenes</a></li>
+					</ul>
+				    
+				</div>
+				<li><a href="#/Acceso"><span class="icon-user-tie"></span>Usuario</a>
+				<div>
+				    <ul>
+				        <li class="titulo"><a></a></li>
+				        <li><a href="#/Recuperar_Contraseña">Cambiar Clave</a></li>
+					</ul>
+				</div>
+				
+				<li><a href="#"><span class="icon-bubbles2"></span>Chat</a>
+				<li><a href="javascript:void(0)"  ng-click="salir()"><span class="icon-switch"></span>Salir</a>
+			</ul>
+            
+		  </nav> 
+		  
+        <div class="contenedorimg" ng-show="usrConectado.estaConectado">
+    <br>
+    <div style="display: inline-block;">
+         <div class="botonAtras" style="padding:5px;">
+            <a href=javascript:history.back(1)><span class="icon-backward"><br></span>Atras</a>
+            <a href="#/Inicio"><span class="icon-home"><br></span>Inicio</a>
+        </div>
+       <img style="width:50%; margin-top: 25px; " src="Imagenes/logo_kronos.jpg">
+        
+    <br>
+    <br>
+      </div>
+      </div>
+</div>

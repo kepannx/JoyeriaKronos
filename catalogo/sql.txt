@@ -1,0 +1,189 @@
+-- phpMyAdmin SQL Dump
+-- version 2.8.0.1
+-- http://www.phpmyadmin.net
+-- 
+-- Servidor: custsql-sl06.eigbox.net
+-- Tiempo de generación: 10-05-2010 a las 10:58:16
+-- Versión del servidor: 5.0.51
+-- Versión de PHP: 4.4.9
+-- 
+-- Base de datos: `magazine`
+-- 
+CREATE DATABASE `magazine` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `magazine`;
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `mag_name`
+-- 
+
+CREATE TABLE `mag_name` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+-- 
+-- Volcar la base de datos para la tabla `mag_name`
+-- 
+
+INSERT INTO `mag_name` VALUES (3, 'forsale');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `mag_numbers`
+-- 
+
+CREATE TABLE `mag_numbers` (
+  `id` int(11) NOT NULL auto_increment,
+  `description` varchar(255) NOT NULL default '',
+  `mag_id` int(11) NOT NULL default '0',
+  `mag_no` int(11) NOT NULL default '0',
+  `pages_width` int(4) NOT NULL default '0',
+  `pages_height` int(4) NOT NULL default '0',
+  `contents_page` int(11) NOT NULL default '2',
+  `bg_color` varchar(6) NOT NULL default '',
+  `bg_image` int(1) NOT NULL default '0',
+  `loader_color` varchar(6) NOT NULL default '',
+  `panel_color` varchar(6) NOT NULL default '',
+  `button_color` varchar(6) NOT NULL default '',
+  `text_color` varchar(6) NOT NULL default '',
+  `mag_date` date NOT NULL default '0000-00-00',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+-- 
+-- Volcar la base de datos para la tabla `mag_numbers`
+-- 
+
+INSERT INTO `mag_numbers` VALUES (2, 'forsale', 3, 0, 385, 596, 40, '', 0, '', '', '', '', '2009-01-13');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `mag_pages`
+-- 
+
+CREATE TABLE `mag_pages` (
+  `id` int(11) NOT NULL auto_increment,
+  `mag_no_id` int(11) NOT NULL default '0',
+  `file_name` varchar(255) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=latin1 AUTO_INCREMENT=49 ;
+
+-- 
+-- Volcar la base de datos para la tabla `mag_pages`
+-- 
+
+INSERT INTO `mag_pages` VALUES (1, 1, '0718754001231847182.jpg');
+INSERT INTO `mag_pages` VALUES (2, 1, '0859378001231847190.jpg');
+INSERT INTO `mag_pages` VALUES (3, 1, '0375003001231847195.jpg');
+INSERT INTO `mag_pages` VALUES (4, 1, '0500003001231847210.jpg');
+INSERT INTO `mag_pages` VALUES (5, 1, '0531253001231847219.jpg');
+INSERT INTO `mag_pages` VALUES (6, 1, '0562502001231847225.jpg');
+INSERT INTO `mag_pages` VALUES (7, 1, '0765628001231847234.jpg');
+INSERT INTO `mag_pages` VALUES (8, 1, '0703128001231847240.jpg');
+INSERT INTO `mag_pages` VALUES (10, 1, '0296878001231847511.jpg');
+INSERT INTO `mag_pages` VALUES (11, 1, '0359378001231847519.jpg');
+INSERT INTO `mag_pages` VALUES (45, 2, '0746124001232205700.jpg');
+INSERT INTO `mag_pages` VALUES (44, 2, '0521834001232205692.jpg');
+INSERT INTO `mag_pages` VALUES (43, 2, '0233541001232205681.jpg');
+INSERT INTO `mag_pages` VALUES (42, 2, '0209371001232205672.jpg');
+INSERT INTO `mag_pages` VALUES (39, 2, '0215321001232205644.jpg');
+INSERT INTO `mag_pages` VALUES (40, 2, '0924539001232205654.jpg');
+INSERT INTO `mag_pages` VALUES (41, 2, '0919942001232205663.jpg');
+INSERT INTO `mag_pages` VALUES (38, 2, '0090397001232205625.jpg');
+INSERT INTO `mag_pages` VALUES (37, 2, '0715769001232205612.jpg');
+INSERT INTO `mag_pages` VALUES (46, 2, '0964895001232205710.jpg');
+INSERT INTO `mag_pages` VALUES (47, 2, '0433306001232205722.jpg');
+INSERT INTO `mag_pages` VALUES (48, 2, '0146262001232205733.jpg');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `page_markers`
+-- 
+
+CREATE TABLE `page_markers` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(11) NOT NULL default '0',
+  `mag_id` int(11) NOT NULL default '0',
+  `mag_no` int(11) NOT NULL default '0',
+  `page_no` int(11) NOT NULL default '0',
+  `page_marker` text NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+-- 
+-- Volcar la base de datos para la tabla `page_markers`
+-- 
+
+INSERT INTO `page_markers` VALUES (1, 2, 3, 2, 0, 'markerToRight0|176.6|-159.15|53.9|1');
+INSERT INTO `page_markers` VALUES (2, 2, 3, 2, 0, 'markerToRight0|176.6|-159.15|53.9|1,markerToRight1|172.7|-162.1|63|3,markerToRight2|75.3|-111.6|9.1|3,markerToRight3|76.6|-128.6|87.05|3');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `page_notes`
+-- 
+
+CREATE TABLE `page_notes` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(11) NOT NULL default '0',
+  `mag_id` int(11) NOT NULL default '0',
+  `mag_no` int(11) NOT NULL default '0',
+  `page_no` int(11) NOT NULL default '0',
+  `page_note` text NOT NULL,
+  `note_win` int(11) NOT NULL default '1',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- 
+-- Volcar la base de datos para la tabla `page_notes`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `users`
+-- 
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL auto_increment,
+  `email` varchar(50) NOT NULL default '',
+  `password` varchar(16) NOT NULL default '',
+  `date` datetime NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+-- 
+-- Volcar la base de datos para la tabla `users`
+-- 
+
+INSERT INTO `users` VALUES (1, 'kepannx@hotmail.com', '', '2009-01-14 16:29:30');
+INSERT INTO `users` VALUES (2, '', '', '2009-01-14 23:25:05');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `users_bg`
+-- 
+
+CREATE TABLE `users_bg` (
+  `id` int(11) NOT NULL auto_increment,
+  `bg_id` int(11) NOT NULL default '0',
+  `user_id` int(11) NOT NULL default '0',
+  `mag_name_id` int(11) NOT NULL default '0',
+  `mag_no_id` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+-- 
+-- Volcar la base de datos para la tabla `users_bg`
+-- 
+
+INSERT INTO `users_bg` VALUES (1, 2, 2, 3, 2);
+INSERT INTO `users_bg` VALUES (2, 1, 2, 3, 2);

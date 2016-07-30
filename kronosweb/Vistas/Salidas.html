@@ -1,0 +1,101 @@
+
+<script src="Scripts/Controladores/salidas.js"></script>
+
+<div  ng-controller="CtrSalidas" >
+    
+    
+ <h2 class="textoazul"><a><span class="icon-folder-minus"></span></a>Salidas</h2> <br>
+ <div style="display: inline-block; margin:0 auto;">    
+ 
+       <div style="float:left;" ng-keyup="enterHabilitar($event.keyCode)" > 
+            <label>Vendedor : </label> {{vendedorLogeado}} <br>
+            <input type="password" ng-show="!habilitarContenido" class="CajaTexto" placeholder="Clave" ng-model="salida.vendedora" >
+        </div>  
+        
+        <div class="botonVerde_A" style="float:left; top:20px;" >
+            <br>
+            <a href="javascript:void(0)" ng-show="!habilitarContenido" ng-click="habilitarSalida()"><span class="icon-unlocked"></span>Habilitar</a>
+        </div>
+        
+ </div>
+ <div ng-show="habilitarContenido">
+ <br>
+ <br>
+    
+    <form class="contenedorInterno"  name="formSalidas" style="display: inline-block;">
+               
+        <br>
+        <div style="float:left;" > 
+            <label>EAN</label> <br>
+            <input class="CajaTexto" id="ean" type="number" name="EAN" ng-model="productoConsultar.ean" required />
+        </div>
+        
+        <div style="float:left;" ng-keyup="enterProducto($event.keyCode)"> 
+            <label>Cantidad</label> <br>
+            <input class="CajaTextoNumeroCorto" id=eanParaConsultar  type="number" name="Producto" ng-model="productoConsultar.cantidad" required />
+        </div>
+        
+        <div class="botonAzul_A" style="float:left;" ng-show="!formSalidas.$invalid">
+            <br>
+            <a href="javascript:void(0)" id=botonAgregar ng-click="agregarProducto()"><span class="icon-cart"></span>Agregar Producto</a>
+            <br>
+            
+        </div>
+    </form>
+    <table class="tabla1">
+        <thead>
+            <tr>
+                <th>EAN</th>
+                <th>Referencia</th>
+                <th>Descripción Grupo</th>
+                <th>Cantidad</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="producto in productos">
+                <td>{{producto.Codigo}}</td>
+                <td>{{ producto.Referencia }}</td>
+                <td>{{ producto.DescripcionGrupo }}</td>
+                <td>{{ producto.Cantidad }}</td>
+                <td> <a href="javascript:void(0)" ng-click="eliminarProducto(producto.id)">Eliminar</a></td>
+            </tr>
+            <tr ><td></td>
+                <td></td>
+                <td>TOTAL CANTIDAD:</td>
+                <td>{{ total }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <div ng-show="button_clicked" >
+     <div class="botonVerde_A"  ng-show="productos.length > 0 && activarReimprimir ">
+        <a href="javascript:void(0)"   ng-click="generarSalida()"><span class="icon-folder-minus"></span>Generar Salida</a>
+       </div>
+     </div>
+</div>
+
+<div id="imprimeme"  ng-show='false' style="width:240px; text-align:left; font-size:12px;" >
+        <h3 style="font-size:18px;">Remisiòn Salida : </h3> <br>
+        <img src="{{cotizacionGuardada}}"><br><br>
+        
+        <label>Fecha : {{fechaSalida | date:'medium' }} </label><br>
+        <label>Tienda : </label> {{ usrConectado.almacen }} <br>
+        <label>Vendedor : </label> {{vendedorLogeado}} <br>
+         <label>Id Salida : </label> {{ idSalida }} <br>
+        <label style="text-align: justify;" > ****** PRODUCTOS ******</label> <br><br>
+        
+    <div style="width:240px; text-align:left;" ng-repeat="producto in productos">
+        
+        <label>Producto : </label> {{ producto.Codigo }} <br>
+        <label>Referencia : </label> {{ producto.Referencia }} <br>
+        <label>Cantidad : </label> {{ producto.Cantidad }} <br>
+        <label> *****</label>
+     </div>
+        <br><br>
+         <label> ********************</label><br>
+        <label>Total Und : </label> {{ total }} <br><br> 
+        <p style="text-align: justify; font:1em; width:240px;">Productos Que Salen Del Inventario</p>
+
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<BR><BR><center><TABLE>
+<form METHOD="POST" NAME="login" ENCTYPE="application/x-www-form-urlencoded">
+		<TR>
+			<TD COLSPAN="2" ALIGN="CENTER"><FONT FACE="Arial"
+SIZE="5">Mail Admin</font></TD>
+		</TR>
+		<TR>
+			<TD>
+				E-mail Address:
+			</TD>
+			<TD>
+				<INPUT TYPE="text" NAME="credential_0" value="" SIZE="30" MAXLENGTH="128" class="formfield">
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				Password:
+			</TD>
+			<TD>
+				<INPUT TYPE="password" NAME="credential_1" SIZE="20" MAXLENGTH="50" class="formfield">
+
+			</TD>
+		</TR>
+		<TR>
+			
+			<TD>
+				<INPUT TYPE="submit" NAME="Log In"
+VALUE="Check Mail"
+onclick="javascript:login.action='http://www.startlogic.com/mail/index.bml?s=1';javascript:login.destination.value = '/mailadmin/index.bml?check=1';" >
+			</TD>
+			<TD>
+				<INPUT TYPE="submit" NAME="Log In"
+VALUE="Manage Mail"
+onclick="javascript:login.action='https://secure.startlogic.com/mailLogin';javascript:login.destination.value = '/mailadmin/index.bml?manage=1';">
+			</TD>
+		</TR>
+		<INPUT TYPE="hidden" NAME="destination">
+			
+		</form>
+</TABLE>
+</center>
